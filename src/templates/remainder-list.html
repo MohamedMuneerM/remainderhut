@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<div>
+		<ol>
+			{% for remainder in remainders %}
+				<li>
+					{{ remainder.title }} - {{remainder.user.username}} {{ remainder.is_success }}
+				</li>
+			{% endfor %}
+		</ol>
+	</div>
+			
+		
+{% endblock content %}
