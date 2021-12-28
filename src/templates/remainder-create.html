@@ -1,19 +1,55 @@
-
-
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 	<div class="container">
-		<form method="POST"> {% csrf_token %} 
-			{{ form.title|as_crispy_field }} 
-			{{ form.description|as_crispy_field }} 
-			{{ form.time_zone|as_crispy_field }}
-			<div style="position:relative;">
-				{{ form.when|as_crispy_field }} 
-			</div> 
-			{{ form.is_repetitive|as_crispy_field }} 
-			{{ form.send_sms|as_crispy_field }} 
+		<form method="POST"> {% csrf_token %}
+			<div class="input-group input-group-static my-3">
+		      <label class="form-label">Text</label>
+		      {{ form.title }} 
+		    </div>
+		    <div class="input-group input-group-static">
+		    	<label class="">description</label>
+		      {{ form.description }} 
+		    </div>
+		    <div class="input-group input-group-static my-3">
+	    		<label class="form-label">when</label>
+	      		{{ form.when }} 
+		    </div>
+
+		    <div class="input-group input-group-static mb-4">
+		     <label for="exampleFormControlSelect1" class="ms-0">Time Zone</label>
+		     {{ form.time_zone}}
+		   	</div>
+
+		   	<div class="input-group input-group-static my-3">
+	      		<label>Datetime</label>
+	      		<input type="datetime-local" class="form-control">
+	    	</div>
+
+
+		   	<div class="form-check">
+			  <input class="form-check-input" type="checkbox" name="is_repetitive" id="id_is_repetitive">
+			  <label class="form-check-label" for="id_is_repetitive">is repetitive</label>
+			</div>
+
+		   	<div class="">
+			  <input class="form-check-input pl-0 ml-0 mx-0 px-0" type="checkbox" name="send_sms" id="id_send_sms">
+			  <label class="form-check-label pl-0 ml-0 mx-0 px-0" for="id_send_sms">send sms</label>
+			</div>
+
+			
+
+		   <!-- 	<div class="input-group input-group-static mb-4">
+		     <label for="exampleFormControlSelect1" class="ms-0">is_repetitive</label>
+		     {{ form.is_repetitive}} 		   	
+		 	</div>
+
+		 	<div class="input-group input-group-static mb-4">
+		     <label for="exampleFormControlSelect1" class="ms-0">send_sms</label>
+		     {{ form.send_sms}} 		   	
+		 	</div> -->
+			<!-- <div style="position:relative;"> -->		
+			 
 			<button type="submit">Submit</button>
 		</form>
 		
@@ -23,11 +59,11 @@
 {% endblock content %}
 
 {% block jquery_cdn %}
-	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+	<!-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
+ -->
 <script type="text/javascript">
   $(document).ready(function() {
       $('#id_when').datetimepicker({
